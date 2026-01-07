@@ -1,8 +1,17 @@
+import { FC } from "hono/jsx";
 import Layout from "../../components/Layout";
 
-const AboutPage = () => {
+type AboutPageProps = {
+  isLoggedIn?: boolean;
+  username?: string;
+};
+
+const AboutPage: FC<AboutPageProps> = ({
+  isLoggedIn = false,
+  username = "",
+}) => {
   return (
-    <Layout title="About Page">
+    <Layout title="About Page" isLoggedIn={isLoggedIn} username={username}>
       <h1>About Us</h1>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam alias

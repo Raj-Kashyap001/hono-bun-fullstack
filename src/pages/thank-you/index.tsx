@@ -3,10 +3,20 @@ import Layout from "../../components/Layout";
 
 type ThankYouPageProps = {
   email: string;
+  isLoggedIn?: boolean;
+  username?: string;
 };
-const ThankYouPage: FC<ThankYouPageProps> = ({ email }) => {
+const ThankYouPage: FC<ThankYouPageProps> = ({
+  email,
+  isLoggedIn = false,
+  username = "",
+}) => {
   return (
-    <Layout title="Contact Form Send">
+    <Layout
+      title="Contact Form Send"
+      isLoggedIn={isLoggedIn}
+      username={username}
+    >
       <div
         class={"card"}
         style={{
@@ -18,7 +28,8 @@ const ThankYouPage: FC<ThankYouPageProps> = ({ email }) => {
       >
         <h1>Thank You!</h1>
         <p>
-          We have received your message and will get back to you at {email}{" "}
+          We have received your message and will get back to you at
+          <strong> {email} </strong>
           soon.
         </p>
         <button onclick="window.history.back()" style={{ marginTop: "20px" }}>

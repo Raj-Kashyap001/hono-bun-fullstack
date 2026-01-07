@@ -1,9 +1,15 @@
 import { FC } from "hono/jsx";
 import Layout from "../../components/Layout";
 import Card from "../../components/Card";
-const HomePage: FC = () => {
+
+type HomePageProps = {
+  isLoggedIn?: boolean;
+  username?: string;
+};
+
+const HomePage: FC<HomePageProps> = ({ isLoggedIn = false, username = "" }) => {
   return (
-    <Layout title="Home Page">
+    <Layout title="Home Page" isLoggedIn={isLoggedIn} username={username}>
       <h1>Welcome to the Home Page</h1>
       <p>This is the main content of the home page.</p>
 

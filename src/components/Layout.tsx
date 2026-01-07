@@ -4,8 +4,15 @@ import Navbar from "./Navbar";
 type LayoutProps = {
   title: string;
   children: any;
+  isLoggedIn?: boolean;
+  username?: string;
 };
-const Layout: FC<LayoutProps> = ({ title, children }) => {
+const Layout: FC<LayoutProps> = ({
+  title,
+  children,
+  isLoggedIn = false,
+  username = "",
+}) => {
   return html`<!DOCTYPE html>
     <html lang="en">
       <head>
@@ -15,7 +22,7 @@ const Layout: FC<LayoutProps> = ({ title, children }) => {
         <link rel="stylesheet" href="/static/styles.css" />
       </head>
       <body>
-        ${(<Navbar />)}
+        ${(<Navbar isLoggedIn={isLoggedIn} username={username} />)}
         <main>${children}</main>
       </body>
     </html>`;
