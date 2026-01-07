@@ -32,6 +32,7 @@ Open [http://localhost:4000](http://localhost:4000)
 The application uses **Bun.sql** (SQLite) with the following tables:
 
 ### Users Table
+
 - `id` - Primary key
 - `username` - Unique username
 - `email` - Unique email address
@@ -40,6 +41,7 @@ The application uses **Bun.sql** (SQLite) with the following tables:
 - `updated_at` - Last update timestamp
 
 ### Sessions Table
+
 - `id` - Unique session identifier
 - `user_id` - Foreign key to users table
 - `created_at` - Session creation timestamp
@@ -48,6 +50,7 @@ The application uses **Bun.sql** (SQLite) with the following tables:
 ## Authentication Flow
 
 ### Signup
+
 1. Navigate to `/signup`
 2. Fill in username, email, password, and confirm password
 3. Form validates:
@@ -59,12 +62,14 @@ The application uses **Bun.sql** (SQLite) with the following tables:
 4. On success, user is automatically logged in and redirected to `/profile`
 
 ### Login
+
 1. Navigate to `/login`
 2. Enter username and password
 3. Credentials validated against database
 4. On success, session cookie is created and user redirected to `/profile`
 
 ### Logout
+
 1. Click logout button in navbar
 2. Session is destroyed
 3. Cookie is cleared
@@ -73,11 +78,13 @@ The application uses **Bun.sql** (SQLite) with the following tables:
 ## API Endpoints
 
 ### Authentication
+
 - `POST /api/login` - Login with username and password
 - `POST /api/signup` - Register new user with username, email, and password
 - `POST /api/logout` - Logout current user
 
 ### Pages
+
 - `GET /` - Home page
 - `GET /login` - Login page
 - `GET /signup` - Signup page
@@ -116,6 +123,7 @@ src/
 ## Key Functions
 
 ### Authentication (`src/utils/auth.ts`)
+
 - `validateCredentials(username, password)` - Validate user credentials
 - `registerUser(username, email, password)` - Register new user
 - `createSession(userId)` - Create authenticated session
@@ -123,6 +131,7 @@ src/
 - `deleteSession(sessionId)` - Destroy session
 
 ### Database (`src/utils/db.ts`)
+
 - `initializeDatabase()` - Initialize SQLite schema
 - `hashPassword(password)` - Hash password securely
 - `verifyPassword(password, hash)` - Verify password hash
